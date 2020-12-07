@@ -73,6 +73,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "neosis_telephone_directory.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "neosis_telephone_directory.telephone_directory",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
