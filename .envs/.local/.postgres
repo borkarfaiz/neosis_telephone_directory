@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=neosis_telephone_directory
+POSTGRES_USER=UFsegWTdBHHDIUVqTFnolqAoofpplstD
+POSTGRES_PASSWORD=78WPe5XoZriTMNQb9ggV6iT1YpkEmyJIm2wTuRBYvdHeXClq51la3MbOiukANudT
