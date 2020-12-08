@@ -15,6 +15,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Mobile  Number</th>
             <th scope="col">LandLine Number</th>
+            <th scope="col">Date Added</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                     <td>{{ object.last_name }}</td>
                     <td>{{ object.mobile_number }}</td>
                     <td>{{ object.landline_number }}</td>
+                    <td>{{ object.created|date:'d-m-Y' }}</td>  
                 </tr>
             {% endfor %}
         </tbody>
