@@ -14,3 +14,5 @@ django-model-utils==4.1.1  # https://github.com/jazzband/django-model-utils
 django-allauth==0.44.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.10.0  # https://github.com/django-crispy-forms/django-crispy-forms
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
+django-tables2==2.3.3 # https://django-tables2.readthedocs.io/en/latest/index.html
+django-tables2-bootstrap4==2.0.0b5 # https://django-tables2.readthedocs.io/en/latest/index.html

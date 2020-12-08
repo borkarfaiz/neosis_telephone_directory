@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_tables2",
 ]
 
 LOCAL_APPS = [
@@ -191,6 +192,10 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# https://django-tables2.readthedocs.io/en/latest/pages/custom-rendering.html
+DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
+
 
 # FIXTURES
 # ------------------------------------------------------------------------------
