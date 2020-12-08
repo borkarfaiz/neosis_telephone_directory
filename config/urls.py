@@ -15,7 +15,8 @@ urlpatterns = [
     # User management
     path("users/", include("neosis_telephone_directory.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    # Your stuff: custom urls includes go here
+    # Your stuff: custom urls includes go here,
+    path("contacts/", include("neosis_telephone_directory.telephone_directory.urls", namespace="contacts")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
