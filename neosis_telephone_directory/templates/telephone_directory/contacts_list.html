@@ -1,40 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
 
 {% block title %}Contacts{% endblock %}
 
 
 {% block content %}
 <div class="container">
-    {% comment %} <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Middle Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Mobile  Number</th>
-            <th scope="col">LandLine Number</th>
-            <th scope="col">Date Added</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for object in object_list %}
-                <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ object.first_name }}</td>
-                    <td>{{ object.middle_name }}</td>
-                    <td>{{ object.last_name }}</td>
-                    <td>{{ object.mobile_number }}</td>
-                    <td>{{ object.landline_number }}</td>
-                    <td>{{ object.created|date:'d-m-Y' }}</td>  
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table> {% endcomment %}
-        {% render_table table %}
-        {% comment %} {% render_table object_list %} {% endcomment %}
+<form action="" method="get">
+        {{ filter.form|crispy }}
+        <input type="submit" />
+</form>
+{% render_table table %}
 </div>
 {% endblock content %}
 

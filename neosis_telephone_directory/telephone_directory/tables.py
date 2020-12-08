@@ -1,6 +1,8 @@
 import itertools
 
 import django_tables2 as tables
+
+from .filters import ContactsFilter
 from .models import Contacts
 
 class ContactsTable(tables.Table):
