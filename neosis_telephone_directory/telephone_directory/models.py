@@ -23,3 +23,8 @@ class Contacts(TimeStampedModel):
         RegexValidator(regex=r"\d{5}([- ]?)\d{6}", message="Enter Valid Mobile Number")
         ],
     )
+    profile_pic = models.ImageField(
+        upload_to='profile_pic/',
+         null=True, blank=True
+        )
+    

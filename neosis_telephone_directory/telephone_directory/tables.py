@@ -23,4 +23,4 @@ class ContactsTable(tables.Table):
             'No', "first_name", "middle_name", 'last_name', 'mobile_number', 
             'landline_number', 'created',
         ]
-        exclude = ["user", "email", "modified", "id"]
+        exclude = ["user", "email", "modified", "id", "profile_pic"]
