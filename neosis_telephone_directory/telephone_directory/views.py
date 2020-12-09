@@ -41,11 +41,20 @@ from django_filters.views import FilterView
 
 
 class FilteredPersonListView(SingleTableMixin, FilterView):
-    table_class = ContactsTable
-    table_data = Contacts.objects.filter(user_id=1)
     template_name = "telephone_directory/contacts_list.html"
     filterset_class = ContactsFilter
-    
+    table_class = ContactsTable
+    # paginator_class = LazyPaginator
+    paginate_by = 20
+
+    def get_table_data(self):
+        self.filter = ContactsFilter(
+            self.request.GET, 
+            queryset=Contacts.objects.filter(user=self.request.user),
+            request=self.request
+            )
+        return self.filter.qs
+
 
 contact_list_view2 = FilteredPersonListView.as_view()
 
