@@ -10,9 +10,9 @@
 <div class="container">
 <form action="" method="get">
         {{ filter.form|crispy }}
-        <input type="submit" />
+        <input type="submit" value="Search" /> 
+        <a class="btn btn-primary" href="{% url 'contacts:contact_create_view' %}">Add Contact</a>
 </form>
-{% render_table table %}
+    {% render_table table %}
 </div>
 {% endblock content %}
-
