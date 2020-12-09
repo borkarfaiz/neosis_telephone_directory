@@ -27,4 +27,10 @@ class Contacts(TimeStampedModel):
         upload_to='profile_pic/',
          null=True, blank=True
         )
-    
+    notes = models.TextField(blank=True, default="")
+
+
+class ContactViewCount(TimeStampedModel):
+    contact = models.ForeignKey(Contacts, on_delete=models.CASCADE)
+    date = models.DateField()
+    count = models.PositiveIntegerField(default=0)

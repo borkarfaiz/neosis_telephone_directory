@@ -57,6 +57,9 @@ contact_create_view = ContactCreateView.as_view()
 
 class ContactsDetailView(LoginRequiredMixin, DetailView):
     model = Contacts
-
+    
+    def get_queryset(self):
+        return Contacts.objects.filter(user_id=self.request.user.id)
+    
 
 contact_detail_view = ContactsDetailView.as_view()
