@@ -9,6 +9,7 @@ from django_tables2 import RequestConfig
 from django_tables2 import LazyPaginator
 
 from .filters import ContactsFilter
+from .forms import PictureForm
 from .models import Contacts
 from .tables import ContactsTable
 
@@ -60,11 +61,8 @@ contact_list_view2 = FilteredPersonListView.as_view()
 
 
 class ContactCreateView(LoginRequiredMixin, CreateView):
-    model = Contacts    
-    fields = [
-        "first_name", "middle_name", "last_name", "email", "mobile_number",
-        "landline_number", "profile_pic"
-        ]
+    model = Contacts
+    form_class = PictureForm
     
     def get_success_url(self):
         print('get_success_url')
