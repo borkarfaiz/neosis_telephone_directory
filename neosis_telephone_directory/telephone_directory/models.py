@@ -32,5 +32,5 @@ class Contacts(TimeStampedModel):
 
 class ContactViewCount(TimeStampedModel):
     contact = models.ForeignKey(Contacts, on_delete=models.CASCADE)
-    date = models.DateField()
+    count_date = models.DateField()
     count = models.PositiveIntegerField(default=0)

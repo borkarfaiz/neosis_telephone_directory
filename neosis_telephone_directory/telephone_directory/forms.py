@@ -18,5 +18,5 @@ class PictureForm(ModelForm):
         model = Contacts
         fields = [
         "first_name", "middle_name", "last_name", "email", "mobile_number",
-        "landline_number", "profile_pic"
+        "landline_number", "notes", "profile_pic"
         ]

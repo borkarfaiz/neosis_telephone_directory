@@ -3,10 +3,6 @@
 {% load crispy_forms_tags %}
 
 
-{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/telephone_directory/contacts_detail.css' %}"> {% endcomment %}
-
-{% comment %} <link href="{% static 'css/project.css' %}" rel="stylesheet"> {% endcomment %}
-
 {% block title %}Details{% endblock %}
 
 {% block custom_css %}
@@ -14,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-{% comment %} template link:  {% endcomment %}
+{% comment %} template link: https://bootsnipp.com/snippets/K0ZmK {% endcomment %}
 <div class="container emp-profile">
             <form method="post">
                 <div class="row">
@@ -37,7 +33,7 @@
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Insights</a>
                                 </li>
                             </ul>
                         </div>
@@ -47,10 +43,7 @@
                     </div> {% endcomment %}
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                         {% comment %} added space {% endcomment %}
-                    </div>
-                    <div class="col-md-8">
+                    <div class="offset-md-4 col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
@@ -105,50 +98,74 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Experience</label>
+                                                <label>Added Date</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Expert</p>
+                                                <p>{{ object.created|date }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Hourly Rate</label>
+                                                <label>Last Modified Date</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>10$/hr</p>
+                                                <p>{{ object.modified|date }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Total Projects</label>
+                                                <label>Total Views</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>230</p>
+                                                <p>{{ total_views }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Expert</p>
+                                            <div class="offset-3">
+                                                {% if data_present %}                                                
+                                                    <p> Last 7 Days Views Count </p>
+                                                {% endif %}
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
+                                            {% if  data_present %}
+                                                <div id="container" style="width: 75%;">
+                                                    <canvas id="pie-chart"></canvas>
+                                                </div>
+
+                                                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                                                <script>
+
+                                                    var config = {
+                                                    type: 'pie',
+                                                    data: {
+                                                        datasets: [{
+                                                        data: {{ data|safe }},
+                                                        backgroundColor: [
+                                                            "#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00"
+                                                        ],
+                                                        label: 'Population'
+                                                        }],
+                                                        labels: {{ labels|safe }}
+                                                    },
+                                                    options: {
+                                                        responsive: true
+                                                    }
+                                                    };
+
+                                                    window.onload = function() {
+                                                    var ctx = document.getElementById('pie-chart').getContext('2d');
+                                                    window.myPie = new Chart(ctx, config);
+                                                    };
+
+                                                </script>
+
+                                            {% else %}
+                                                    <div class="offset-md-2">
+                                                        <p> There is no data to present for last 7 days </p>
+                                                    </div>
+                                           {% endif %}
                                         </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
