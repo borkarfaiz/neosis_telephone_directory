@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import  ValidationError
-from django.db.models import Sum
+from django.db.models import Sum, F
 from django.views.generic import ListView, CreateView, DetailView
 from django.views.generic.edit import ModelFormMixin
 from django.shortcuts import render, reverse
@@ -65,6 +65,14 @@ contact_create_view = ContactCreateView.as_view()
 class ContactsDetailView(LoginRequiredMixin, DetailView):
     model = Contacts
 
+    def update_count(self):
+        today = date.today()
+        contact_view, created = ContactViewCount.objects.get_or_create(
+            contact_id=self.kwargs['pk'], count_date=today
+        )
+        contact_view.count = F('count') + 1
+        contact_view.save()
+
     def get_queryset(self):
         return Contacts.objects.filter(user_id=self.request.user.id)
 
@@ -108,6 +116,7 @@ class ContactsDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         pie_chart_data = self.get_labels_data()
         context.update(pie_chart_data)
+        self.update_count()
         return context
     
 
