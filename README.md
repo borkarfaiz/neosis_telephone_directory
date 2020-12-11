@@ -19,13 +19,13 @@ Congratulation all setup has been completed nothing more to setup.
 ## Some Commands for docker
  - Making migrations
      ```bash
-     docker-compose -f production.yml run --rm django python manage.py makemigrations
+     docker-compose -f local.yml run --rm django python manage.py makemigrations
      ```
  - For django shell
      ```bash
-     docker-compose -f production.yml run --rm django python manage.py shell
+     docker-compose -f local.yml run --rm django python manage.py shell
      ```
  - For opening the bash
      ```bash
-     docker-compose -f production.yml run --rm django bash
+     docker-compose -f local.yml run --rm django bash
      ```
