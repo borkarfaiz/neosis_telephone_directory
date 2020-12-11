@@ -23,7 +23,7 @@ certificatesResolvers:
 http:
   routers:
     web-router:
-      rule: "Host(`example.com`) || Host(`www.example.com`)"
+      rule: "Host(`ec2-18-222-100-56.us-east-2.compute.amazonaws.com`)"
       
       entryPoints:
         - web
@@ -33,7 +33,7 @@ http:
       service: django
 
     web-secure-router:
-      rule: "Host(`example.com`) || Host(`www.example.com`)"
+      rule: "Host(`ec2-18-222-100-56.us-east-2.compute.amazonaws.com`)"
       
       entryPoints:
         - web-secure
