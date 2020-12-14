@@ -38,7 +38,7 @@ Congratulation all setup has been completed nothing more to setup.
      ```bash
      sudo docker-compose -f local.yml run --rm django python manage.py shell_plus --ipython
      ```
- - Run the below script to generate the fake data
+ - Run the below script to generate the fake data inside django shell
      ```ipython
     from datetime import date
     from dateutil.relativedelta import relativedelta
