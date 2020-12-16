@@ -49,11 +49,9 @@ class ContactCreateView(LoginRequiredMixin, CreateView):
     form_class = PictureForm
     
     def get_success_url(self):
-        print('get_success_url')
         return reverse('contacts:contact_list_view')
 
     def form_valid(self, form):
-        print('form_valid')
         self.object = form.save(commit=False)
         self.object.user = self.request.user
         self.object.save()
@@ -98,7 +96,6 @@ class ContactsDetailView(LoginRequiredMixin, DetailView):
             found_data = df[df["count_date"] == label_date]
             try:
                 count = found_data.iloc[0]['count']
-                print(count)
             except IndexError:
                 count = 0
             
