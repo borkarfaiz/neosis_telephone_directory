@@ -35,7 +35,7 @@ class FilteredPersonListView(SingleTableMixin, FilterView):
     def get_table_data(self):
         self.filter = ContactsFilter(
             self.request.GET, 
-            queryset=Contacts.objects.filter(user=self.request.user),
+            queryset=Contacts.objects.filter(user=self.request.user).annotate(total_count=Sum("contactviewcount__count")),
             request=self.request
             )
         return self.filter.qs
@@ -72,7 +72,7 @@ class ContactsDetailView(LoginRequiredMixin, DetailView):
         contact_view.save()
 
     def get_queryset(self):
-        return Contacts.objects.filter(user_id=self.request.user.id)
+        return Contacts.objects.filter(user_id=self.request.user.id).annotate(total_count=Sum("contactviewcount__count"))
 
     def get_labels_data(self):
         today = date.today()

@@ -17,6 +17,7 @@ class ContactsTable(tables.Table):
     mobile_number = tables.Column(orderable=False)
     landline_number = tables.Column(orderable=False)
     created = tables.DateColumn(verbose_name="Added")
+    total_count = tables.Column(orderable=False, verbose_name="Total Count")
 
     def render_No(self):
         self.row_counter = getattr(self, 'row_counter', itertools.count())
@@ -28,6 +29,6 @@ class ContactsTable(tables.Table):
         attrs = {"class": "table table-striped"}
         sequence = [
             'No', "first_name", "middle_name", 'last_name', 'mobile_number',
-            'landline_number', 'created', 'notes', 'details'
+            'landline_number', 'created', 'notes', 'total_count', 'details'
         ]
         exclude = ["user", "email", "modified", "id", "profile_pic"]

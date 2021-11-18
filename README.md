@@ -106,3 +106,15 @@ Congratulation all setup has been completed nothing more to setup.
             contact_view.save() 
 
      ```
+
+## Debugging Settings
+
+```bash
+export POSTGRES_HOST=postgres
+export POSTGRES_PORT=5432
+export POSTGRES_DB=neosis_telephone_directory
+export POSTGRES_USER=UFsegWTdBHHDIUVqTFnolqAoofpplstD
+export POSTGRES_PASSWORD=78WPe5XoZriTMNQb9ggV6iT1YpkEmyJIm2wTuRBYvdHeXClq51la3MbOiukANudT
+export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+export DATABASE_URL="postgres://UFsegWTdBHHDIUVqTFnolqAoofpplstD:78WPe5XoZriTMNQb9ggV6iT1YpkEmyJIm2wTuRBYvdHeXClq51la3MbOiukANudT@postgres:5432/neosis_telephone_directory"
+```

@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "url",
+            "type": "shell",
+            "options": {
+                "env": {
+                    "DATABASE_URL": "postgres://UFsegWTdBHHDIUVqTFnolqAoofpplstD:78WPe5XoZriTMNQb9ggV6iT1YpkEmyJIm2wTuRBYvdHeXClq51la3MbOiukANudT@postgres:5432/neosis_telephone_directory",
+                }
+            },
+            "command": "echo",
+        }
+    ]
+}
